@@ -3,7 +3,6 @@ pipeline {
 
     environment {
         IMAGE_NAME = 'ci-exam-docker-image'
-        IMAGE_TAG = ${env.BUILD_ID}
         HELM_RELEASE_NAME = 'ci-exam-helm-release'
         HELM_CHART_DIR = 'helm-chart'
     }
