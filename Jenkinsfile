@@ -12,6 +12,7 @@ pipeline {
             steps {
                 script {
                     checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/valardizabal/ci-cd-exam']])
+                    sh 'echo "Checked out code"'
                 }
             }
         }
