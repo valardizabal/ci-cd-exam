@@ -30,7 +30,7 @@ pipeline {
                         sh "minikube image load ${IMAGE_NAME}:${env.BUILD_ID}"
                         sh "echo 'Docker image loaded into Minikube: ci-exam-docker-image:${env.BUILD_ID}'"
                         
-                        sh "helm install ${HELM_RELEASE_NAME} ./${HELM_CHART_DIR} --set image.tag=${env.BUILD_ID}"
+                        sh "helm upgrade ${HELM_RELEASE_NAME} ./${HELM_CHART_DIR} --set image.tag=${env.BUILD_ID}"
                         sh "echo 'Helm release ${HELM_RELEASE_NAME} deployed with image tag ${env.BUILD_ID}'"
                     }
                 }
