@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script {
                     docker.build("${IMAGE_NAME}:${env.BUILD_ID}")
-                    sh 'echo "Docker image built: ${IMAGE_NAME}:${env.BUILD_ID}"'
+                    sh "echo 'Docker image built: ${IMAGE_NAME}:${env.BUILD_ID}'"
                 }
             }
         }
