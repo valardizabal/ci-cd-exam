@@ -6,6 +6,7 @@ pipeline {
         IMAGE_REPOSITORY = 'valardizabal'
         HELM_RELEASE_NAME = 'ci-exam-helm-release'
         HELM_CHART_DIR = 'helm-chart'
+        DOCKER_HUB_CREDENTIALS_ID = 'docker-hub-credentials'
     }
 
     stages {
