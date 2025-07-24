@@ -15,14 +15,14 @@ pipeline {
                 }
             }
         }
-        stage('Build Docker Image') {
-            steps {
-                script {
-                    docker.build("${IMAGE_NAME}:${env.BUILD_ID}")
-                    // sh "docker build -t ${IMAGE_NAME}:${env.BUILD_ID} ."
-                }
-            }
-        }
+        // stage('Build Docker Image') {
+        //     steps {
+        //         script {
+        //             docker.build("${IMAGE_NAME}:${env.BUILD_ID}")
+        //             // sh "docker build -t ${IMAGE_NAME}:${env.BUILD_ID} ."
+        //         }
+        //     }
+        // }
         // stage('Push Docker Image') {
         //     steps {
         //         script {
@@ -49,6 +49,14 @@ pipeline {
         //         }
         //     }
         // }
+        stage('Kubernetes Trial') {
+            steps {
+                script {
+                    sh 'kubectl get pods'
+                    sh 'kubectl get deployments'
+                }
+            }
+        }
     }
 
     post {
