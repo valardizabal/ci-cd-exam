@@ -12,24 +12,16 @@ pipeline {
             steps {
                 script {
                     checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/valardizabal/ci-cd-exam']])
-                    sh 'echo "Checked out code"'
                 }
             }
         }
-        // stage('Use Minikube Docker Daemon') {
-        //     steps {
-        //         script {
-        //             sh 'eval "$(minikube docker-env)"'
-        //         }
-        //     }
-        // }
-        // stage('Build Docker Image') {
-        //     steps {
-        //         script {
-        //             sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
-        //         }
-        //     }
-        // }
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    sh "docker build -t ${IMAGE_NAME}:${env.BUILD_ID} ."
+                }
+            }
+        }
         // stage('Push Docker Image') {
         //     steps {
         //         script {
