@@ -13,7 +13,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 script {
-                    checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/valardizabal/ci-cd-exam']])
+                    git branch: 'main', credentialsId: 'GitHub', url: 'https://github.com/valardizabal/ci-cd-exam'
                 }
             }
         }
